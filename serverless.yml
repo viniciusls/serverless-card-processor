@@ -1,0 +1,13 @@
+service: serverless-card-processor
+
+provider:
+  name: openwhisk
+
+functions:
+  card:
+    handler: app.process
+    events:
+      - http: GET process
+
+plugins:
+  - serverless-openwhisk
