@@ -21,7 +21,10 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'serverless'
+        nodejs('NodeJS 12.16.1') {
+          sh 'serverless'
+        }
+
       }
     }
 
