@@ -22,19 +22,19 @@ function validate(cardNumber, cardOwner, cardExpiration, cardCvc) {
     }
 
     const cardOwnerRegExp = new RegExp('^[a-zA-Z ]+$');
-
+    cardOwner = cardOwner.trim();
     if (!cardOwner || !cardOwnerRegExp.test(cardOwner)) {
         throw new Error(`Invalid Card Owner name. It should have only letters.`);
     }
 
     const cardExpirationRegExp = new RegExp('^(0[1-9]|1[0-2])\\/(20[1-9]{2})$');
-
+    cardExpiration = cardExpiration.trim();
     if (!cardExpiration || !cardExpirationRegExp.test(cardExpiration)) {
         throw new Error(`Invalid card expiration. It should follow the pattern: MM/YYYY.`);
     }
 
     const cardCvcRegExp = new RegExp('^[1-9]{3}$');
-
+    cardCvc = cardCvc.trim();
     if (!cardCvc || !cardCvcRegExp.test(cardCvc)) {
         throw new Error(`Invalid CVC number. It should follow the pattern: 111.`);
     }
