@@ -15,31 +15,34 @@ async function process(params) {
 }
 
 async function validate(cardNumber, cardOwner, cardExpiration, cardCvc) {
-    const cardNumberRegExp = new RegExp('[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}');
+    const cardNumberRegExp = new RegExp('^[0-9]{4}( )?[0-9]{4}( )?[0-9]{4}( )?[0-9]{4}$');
 
     if (!cardNumber || !cardNumberRegExp.test(cardNumber)) {
-        throw `Invalid Card Number.`;
+        throw new Error(`Invalid Card Number. It should follow the pattern: 1111222233334444 or 1111 2222 3333 4444`);
     }
 
     const cardOwnerRegExp = new RegExp('^[a-zA-Z ]+$');
 
     if (!cardOwner || !cardOwnerRegExp.test(cardOwner)) {
-        throw `Invalid Card Owner name.`;
+        throw new Error(`Invalid Card Owner name. It should have only letters.`);
     }
 
     const cardExpirationRegExp = new RegExp('^(0[1-9]|1[0-2])\\/(20[1-9]{2})$');
 
     if (!cardExpiration || !cardExpirationRegExp.test(cardExpiration)) {
-        throw `Invalid card expiration.`;
+        throw new Error(`Invalid card expiration. It should follow the pattern: MM/YYYY.`);
     }
 
     const cardCvcRegExp = new RegExp('^[1-9]{3}$');
 
     if (!cardCvc || !cardCvcRegExp.test(cardCvc)) {
-        throw `Invalid CVC number`;
+        throw new Error(`Invalid CVC number. It should follow the pattern: 111.`);
     }
 
     return true;
 }
 
-module.exports.process = process;
+module.exports = {
+    process,
+    validate
+}
