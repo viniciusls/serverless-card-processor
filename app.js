@@ -2,11 +2,11 @@
 const { Gateway } = require('./gateway');
 const gateway = new Gateway();
 
-async function process(params) {
-    const cardNumber = params.cardnumber;
-    const cardOwner = params.cardowner;
-    const cardExpiration = params.cardexpiration;
-    const cardCvc = params.cardcvc;
+function process(params) {
+    const cardNumber = params.cardNumber;
+    const cardOwner = params.cardOwner;
+    const cardExpiration = params.cardExpiration;
+    const cardCvc = params.cardCvc;
 
     validate(cardNumber, cardOwner, cardExpiration, cardCvc);
 
