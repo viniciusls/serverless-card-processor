@@ -1,5 +1,5 @@
 class Gateway {
-    async process(cardNumber, cardOwner, cardExpiration, cardCvc) {
+    process(cardNumber, cardOwner, cardExpiration, cardCvc) {
         return { transactionId: Math.floor(Math.random() * 1000) };
     }
 }

@@ -11,7 +11,7 @@ async function process(params) {
     validate(cardNumber, cardOwner, cardExpiration, cardCvc);
 
     // call payment gateway
-    return await gateway.process(cardNumber, cardOwner, cardExpiration, cardCvc);
+    return gateway.process(cardNumber, cardOwner, cardExpiration, cardCvc);
 }
 
 function validate(cardNumber, cardOwner, cardExpiration, cardCvc) {
