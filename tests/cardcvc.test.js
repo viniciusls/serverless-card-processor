@@ -16,19 +16,19 @@ describe('Tests for validate card owner on validate()', () => {
         chai.expect(app.validate(cardNumber, cardOwner, cardExpiration, cardCvc)).to.be.true;
     });
 
-    it('should not pass if cardOwner has a letter on the beginnings', async () => {
+    it('should not pass if cardCvc has a letter on the beginning', async () => {
         const cardCvc = 'A23';
 
         chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid CVC number. It should follow the pattern: 111.');
     });
 
-    it('should not pass if cardOwner has a letter on the end', async () => {
+    it('should not pass if cardCvc has a letter on the end', async () => {
         const cardCvc = '12B';
 
         chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid CVC number. It should follow the pattern: 111.');
     });
 
-    it('should not pass if cardOwner has a letter on any part', async () => {
+    it('should not pass if cardCvc has a letter on any part', async () => {
         const cardCvc = '1C3';
 
         chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid CVC number. It should follow the pattern: 111.');
