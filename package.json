@@ -22,10 +22,13 @@
   },
   "homepage": "https://github.com/viniciusls/serverless-card-processor#readme",
   "dependencies": {
+    "serverless-openwhisk": "^0.18.4"
+  },
+  "devDependencies": {
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^7.1.1",
     "nyc": "^15.0.0",
-    "serverless-openwhisk": "^0.18.4",
     "sinon": "^9.0.1"
   }
 }
