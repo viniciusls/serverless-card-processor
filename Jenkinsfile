@@ -12,7 +12,10 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'npm run test'
+        nodejs('NodeJS 12.16.1') {
+          sh 'npm run test'
+        }
+
       }
     }
 
