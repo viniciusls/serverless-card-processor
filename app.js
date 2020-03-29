@@ -8,13 +8,13 @@ async function process(params) {
     const cardExpiration = params.cardexpiration;
     const cardCvc = params.cardcvc;
 
-    await validate(cardNumber, cardOwner, cardExpiration, cardCvc);
+    validate(cardNumber, cardOwner, cardExpiration, cardCvc);
 
     // call payment gateway
     return await gateway.process(cardNumber, cardOwner, cardExpiration, cardCvc);
 }
 
-async function validate(cardNumber, cardOwner, cardExpiration, cardCvc) {
+function validate(cardNumber, cardOwner, cardExpiration, cardCvc) {
     const cardNumberRegExp = new RegExp('^[0-9]{4}( )?[0-9]{4}( )?[0-9]{4}( )?[0-9]{4}$');
 
     if (!cardNumber || !cardNumberRegExp.test(cardNumber)) {
