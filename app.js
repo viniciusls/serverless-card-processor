@@ -18,7 +18,7 @@ async function validate(cardNumber, cardOwner, cardExpiration, cardCvc) {
     const cardNumberRegExp = new RegExp('^[0-9]{4}( )?[0-9]{4}( )?[0-9]{4}( )?[0-9]{4}$');
 
     if (!cardNumber || !cardNumberRegExp.test(cardNumber)) {
-        throw new Error(`Invalid Card Number. It should follow the pattern: 1111222233334444 or 1111 2222 3333 4444`);
+        throw new Error(`Invalid Card Number. It should follow the pattern: 1111222233334444 or 1111 2222 3333 4444.`);
     }
 
     const cardOwnerRegExp = new RegExp('^[a-zA-Z ]+$');
