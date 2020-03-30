@@ -1,5 +1,5 @@
-org: viniciusls
-app: serverless-card-processor
+#org: viniciusls
+#app: serverless-card-processor
 service: serverless-card-processor
 
 provider:
