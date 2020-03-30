@@ -1,0 +1,100 @@
+swagger: "2.0"
+info:
+  description: "This is a sample API for Credit Card validation and fictious processing using NodeJS, Jenkins for CI/CD, Mocha/Chai/Sinon for Unit Tests and Serverless for deployment on IBM Cloud using IBM Cloud Functions and OpenWhisk"
+  version: "1.0.0"
+  title: "Serverless Card Processor"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "vinicius.ls@live.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/8a6b729197f11086526138475ed32f92928710e6a224fb547a0522e17cfaac5c"
+basePath: "/"
+tags:
+- name: "card"
+  description: "Access to Credit Card validator"
+schemes:
+- "http"
+paths:
+  /process:
+    get:
+      tags:
+      - "card"
+      summary: "Ask for processing a Credit Card for a buy"
+      description: ""
+      operationId: "process"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "cardNumber"
+        description: "Credit Card number in the following format: 1234567890123456 or 1234 5678 9012 3456."
+        required: true
+        schema:
+          $ref: "#/definitions/Card"
+      - in: "query"
+        name: "cardOwner"
+        description: "Credit Card owner name. Only letters are allowed."
+        required: true
+        schema:
+          $ref: "#/definitions/Card"
+      - in: "query"
+        name: "cardExpiration"
+        description: "Credit Card expiration in the following format: MM/YYYY."
+        required: true
+        schema:
+          $ref: "#/definitions/Card"
+      - in: "query"
+        name: "cardCvc"
+        description: "Credit Card CVC (Card Validation Code) in the following format: 123."
+        required: true
+        schema:
+          $ref: "#/definitions/Card"
+      responses:
+        405:
+          description: "Invalid Card Number. It should follow the pattern: 1111222233334444 or 1111 2222 3333 4444."
+        405:
+          description: "Invalid Card Owner name. It should only have letters."
+        405:
+          description: "Invalid card expiration. It should follow the pattern: MM/YYYY."
+        405:
+          description: "Invalid CVC number. It should follow the pattern: 111."
+definitions:
+  Card:
+    type: "object"
+    required:
+    - "cardNumber"
+    - "cardOwner"
+    - "cardExpiration"
+    - "cardCvc"
+    properties:
+      cardNumber:
+        type: "string"
+        example: "1234567890123456"
+      cardOwner:
+        type: "string"
+        example: "Vinicius Silva"
+      cardExpiration:
+        type: "string",
+        example: "05/2028"
+      cardCvc:
+        type: "string",
+        example: "123"
+    xml:
+      name: "Card"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+      data:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "https://swagger.io"
