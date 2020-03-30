@@ -18,18 +18,18 @@ describe('Tests for validate card owner on validate()', () => {
     it('should not pass if cardOwner has a letter on the beginnings', async () => {
         const cardOwner = '1Vinicius Silva';
 
-        chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid Card Owner name. It should have only letters.');
+        chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid Card Owner name. It should only have letters.');
     });
 
     it('should not pass if cardOwner has a letter on the end', async () => {
         const cardOwner = 'Vinicius Silva1';
 
-        chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid Card Owner name. It should have only letters.');
+        chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid Card Owner name. It should only have letters.');
     });
 
     it('should not pass if cardOwner has a letter on any part', async () => {
         const cardOwner = 'Vinicius1 Silva';
 
-        chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid Card Owner name. It should have only letters.');
+        chai.expect(app.validate.bind(app, cardNumber, cardOwner, cardExpiration, cardCvc)).to.throw('Invalid Card Owner name. It should only have letters.');
     });
 });

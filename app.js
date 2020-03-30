@@ -24,7 +24,7 @@ function validate(cardNumber, cardOwner, cardExpiration, cardCvc) {
     const cardOwnerRegExp = new RegExp('^[a-zA-Z ]+$');
     cardOwner = cardOwner.trim();
     if (!cardOwner || !cardOwnerRegExp.test(cardOwner)) {
-        throw new Error(`Invalid Card Owner name. It should have only letters.`);
+        throw new Error(`Invalid Card Owner name. It should only have letters.`);
     }
 
     const cardExpirationRegExp = new RegExp('^(0[1-9]|1[0-2])\\/(20[1-9]{2})$');
