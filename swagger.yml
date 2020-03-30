@@ -72,10 +72,10 @@ definitions:
         type: "string"
         example: "Vinicius Silva"
       cardExpiration:
-        type: "string",
+        type: "string"
         example: "05/2028"
       cardCvc:
-        type: "string",
+        type: "string"
         example: "123"
     xml:
       name: "Card"
