@@ -9,13 +9,13 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/8a6b729197f11086526138475ed32f92928710e6a224fb547a0522e17cfaac5c"
+host: "service.us.apiconnect.ibmcloud.com/gws/apigateway/api/8a6b729197f11086526138475ed32f92928710e6a224fb547a0522e17cfaac5c"
 basePath: "/"
 tags:
 - name: "card"
   description: "Access to Credit Card validator"
 schemes:
-- "http"
+- "https"
 paths:
   /process:
     get:
