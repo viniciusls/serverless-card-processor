@@ -55,13 +55,7 @@ paths:
           $ref: "#/definitions/Card"
       responses:
         405:
-          description: "Invalid Card Number. It should follow the pattern: 1111222233334444 or 1111 2222 3333 4444."
-        405:
-          description: "Invalid Card Owner name. It should only have letters."
-        405:
-          description: "Invalid card expiration. It should follow the pattern: MM/YYYY."
-        405:
-          description: "Invalid CVC number. It should follow the pattern: 111."
+          description: "Invalid input which can be one of these: Invalid Card Number. It should follow the pattern: 1111222233334444 or 1111 2222 3333 4444 || Invalid Card Owner name. It should only have letters || Invalid card expiration. It should follow the pattern: MM/YYYY || Invalid CVC number. It should follow the pattern: 111"
 definitions:
   Card:
     type: "object"
