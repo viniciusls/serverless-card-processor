@@ -47,5 +47,6 @@ serverless deploy'''
     OW_AUTH = credentials('AUTH')
     OW_APIHOST = 'us-south.functions.cloud.ibm.com'
     OW_APIGW_ACCESS_TOKEN = ''
+    API_KEY = credentials('API_KEY')
   }
 }
